@@ -1,7 +1,7 @@
 Package: pepe
 Type: Package
 Title: Data Manipulation
-Version: 0.1.0
+Version: 1.0.0
 Author: Seyma Kalay
 Maintainer: Seyma Kalay <seymakalay@hotmail.com>
 Description: Is designed to make data manipulation easy. 
@@ -21,4 +21,5 @@ Imports:
     dplyr,
     ggplot2,
     psych,
-    tidyr
+    tidyr,
+    utils
