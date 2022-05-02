@@ -2,29 +2,35 @@
 % Please edit documentation in R/Plot.by.Factr.R
 \name{Plot.by.Factr}
 \alias{Plot.by.Factr}
-\title{Plot by Factor and Continuous}
+\title{Plot by Factor}
 \usage{
-Plot.by.Factr(XXX)
+Plot.by.Factr(XXX, name.levels)
 }
 \arguments{
 \item{XXX}{object to be plotted.}
+
+\item{name.levels}{name object.}
 }
 \value{
 The output from  \code{\link{Plot.by.Factr}}.
 }
 \description{
-Plot by Factor and Continuous
+Plot by Factor
 }
 \examples{
 \dontrun{
-df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
-"sex","educ","political.afl","married",
+df <- sample_data[c("Formal","Informal","L.Both",
+"No.Loan", "sex","educ","political.afl","married",
 "havejob","rural","age","Income","Networth","Liquid.Assets",
 "NW.HE","fin.knowldge","fin.intermdiaries")]
 CN = colnames(df)
 var <- c("educ","rural","sex","havejob","political.afl")
-df4.Plot.by.Factr(var,df)
-Plot.by.Factr(df4.Plot.by.Factr(var,df)$Summ.Stats.long)
 
+name.levels <- c("Formal","Informal","L.Both","No.Loan",
+"sex","educ","political.afl","married",
+"havejob","rural","age","Income","Networth","Liquid.Assets",
+"NW.HE","fin.knowldge","fin.intermdiaries")
+
+Plot.by.Factr(df4.Plot.by.Factr(var,df)$Summ.Stats.long, name.levels)
 }
 }

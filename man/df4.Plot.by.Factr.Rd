@@ -18,7 +18,6 @@ The output from  \code{\link{df4.Plot.by.Factr}}
 Creating Dataset for Plot.by.Factr
 }
 \examples{
-\dontrun{
 df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
 "sex","educ","political.afl","married",
 "havejob","rural","age","Income","Networth","Liquid.Assets",
@@ -26,6 +25,5 @@ df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
 CN = colnames(df)
 var <- c("educ", "rural", "sex", "havejob", "political.afl")
 df4.Plot.by.Factr(var,df)
-}
 
 }

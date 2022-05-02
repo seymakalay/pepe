@@ -7,10 +7,9 @@
 #' @export
 #' @importFrom psych describe
 #' @importFrom tidyr gather
-#' @importFrom  dplyr group_by summarise arrange mutate ungroup filter
-#' @importFrom   ggplot2 ggplot
+#' @importFrom dplyr group_by summarise arrange mutate ungroup filter
+#' @importFrom dplyr %>% across
 #' @examples
-#' \dontrun{
 #' df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
 #' "sex","educ","political.afl","married",
 #' "havejob","rural","age","Income","Networth","Liquid.Assets",
@@ -18,7 +17,6 @@
 #' CN = colnames(df)
 #' var <- c("educ", "rural", "sex", "havejob", "political.afl")
 #' df4.Plot.by.Factr(var,df)
-#' }
 #'
 
 df4.Plot.by.Factr <- function(var, df) {

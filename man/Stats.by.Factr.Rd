@@ -19,7 +19,13 @@ Summary Statistics by Factor
 }
 \examples{
 \dontrun{
-var <- c("cyl", "vs", "am")
-Stats.by.Factr(var, mtcars)
+df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
+"sex","educ","political.afl","married",
+"havejob","rural","age","Income","Networth","Liquid.Assets",
+"NW.HE","fin.knowldge","fin.intermdiaries")]
+CN = colnames(df)
+var <- c("educ","rural","sex","havejob","political.afl")
+Stats.by.Factr(var, df)
 }
+
 }

@@ -1,34 +1,49 @@
-#' Plot by Factor and Continuous
+#' Plot by Factor
 #'
 #' @param XXX object to be plotted.
+#' @param name.levels name object.
 #' @return The output from  \code{\link{Plot.by.Factr}}.
 #' @export
 #' @importFrom psych describe
 #' @importFrom tidyr gather spread
 #' @importFrom  dplyr group_by summarise arrange mutate ungroup filter
-#' @importFrom   ggplot2 ggplot
+#' right_join select desc slice top_n
+#' @importFrom  ggplot2 ggplot scale_color_manual scale_y_discrete theme_minimal element_blank
+#' scale_x_log10 theme ggsave geom_text geom_point labs aes geom_line
+#' @importFrom dplyr %>%
+#' @importFrom  utils globalVariables
 #' @examples
 #' \dontrun{
-#' df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
-#' "sex","educ","political.afl","married",
+#' df <- sample_data[c("Formal","Informal","L.Both",
+#' "No.Loan", "sex","educ","political.afl","married",
 #' "havejob","rural","age","Income","Networth","Liquid.Assets",
 #' "NW.HE","fin.knowldge","fin.intermdiaries")]
 #' CN = colnames(df)
 #' var <- c("educ","rural","sex","havejob","political.afl")
-#' df4.Plot.by.Factr(var,df)
-#' Plot.by.Factr(df4.Plot.by.Factr(var,df)$Summ.Stats.long)
 #'
-#' }
+#' name.levels <- c("Formal","Informal","L.Both","No.Loan",
+#' "sex","educ","political.afl","married",
+#' "havejob","rural","age","Income","Networth","Liquid.Assets",
+#' "NW.HE","fin.knowldge","fin.intermdiaries")
+#'
+#' Plot.by.Factr(df4.Plot.by.Factr(var,df)$Summ.Stats.long, name.levels)
+#'}
 
-# XXX = df4.Plot.by.Factr(var,df)$Summ.Stats.long
-
-#Plot.by.Factr <-  df4.Plot.by.Factr(var,df); Plot.by.Factr
-#var <- c("educ", "rural", "sex", "havejob", "political.afl")
 
 
+# name.levels <- c("Formal","Informal","L.Both","No.Loan",
+# "sex","educ","political.afl","married",
+# "havejob","rural","age","Income","Networth","Liquid.Assets",
+# "NW.HE","fin.knowldge","fin.intermdiaries")
 
 
-Plot.by.Factr <- function(XXX){
+
+#if(getRversion() >= "2.15.1")  globalVariables(c(".", "where", "Variable", "Mean",
+#                                                        "Levels", "Max", "Min", "Diff",
+#                                                        "var", "values"))
+
+
+Plot.by.Factr <- function(XXX, name.levels){
 
   #descriptive.plots  <- "descriptive.plots."
 
@@ -38,8 +53,12 @@ Plot.by.Factr <- function(XXX){
     #   geom_point()
 
     XXX[[i]]$Variable <- factor(XXX[[i]]$Variable,
-                                levels = rev(unique(XXX[[i]]$Variable)),
-                                ordered = TRUE)
+                                levels = rev(unique(name.levels))
+                                #levels = rev(unique(XXX[[i]]$Variable)),
+                                #ordered = TRUE)
+                                 )
+
+
 
 
     city_rev <- XXX[[i]]  %>%
@@ -100,7 +119,15 @@ Plot.by.Factr <- function(XXX){
     #}
 
 
-    p <- ggplot(df_groupby, aes(x = Mean, y = Variable)) +
+    p <-
+
+      ggplot(df_groupby, aes(x = Mean, y = Variable)) +
+
+      #df_groupby %>%
+      #mutate(name = factor(Variable, levels = name.levels)) %>%
+      #geom_segment( aes(yend = Variable, xend = 0)) + #added this for levels
+
+
       geom_line(aes(group = Variable), alpha = .3) +
       scale_color_manual(values = c("black", "darkgrey"))+
       labs(x = "Mean Differences in %") +  #, y = "Variables")+
@@ -110,7 +137,7 @@ Plot.by.Factr <- function(XXX){
       geom_point(aes(color = Levels), size = 1.5, alpha = .3) +
       #xlim(0,1) +
       geom_line(data = highlight, aes(group = Variable)) +
-      geom_point(data = highlight, aes(color =  Levels), size = 2, pch=19,  alpha=1) +
+      geom_point(data = highlight, aes(color =  Levels), size = 2, pch = 19,  alpha = 1) +
       geom_text(data = plot_label, aes(color = Levels,
                                        #label = paste0("+", scales::percent(round(Diff, 2)))),
                                        label = paste0("+", (round(Diff, 2))*100,"%")),
@@ -120,10 +147,15 @@ Plot.by.Factr <- function(XXX){
       scale_x_log10()
 
 
-    ggsave(p, filename = paste("descriptive.plots.",
-                               var[i], ".png", sep=''), scale=2)
+    #ggsave(p, filename = paste("descriptive.plots.",
+     #                          var[i], ".png", sep=''), scale=2)
 
-    # ggsave(p, file = paste(descriptive.plots,
+    ggsave(p, filename = file.path("descriptive.plots", paste("descriptive.plots.",
+                                    var[i], ".png", sep='')), scale = 2)
+
+    #ggsave(filename = file.path("figs","fig1.png")
+
+     # ggsave(p, file = paste(descriptive.plots,
     #                           var[i], ".png", sep=''), scale=2)
 
     #path = "descriptive.plots", #filename ="out[[i]].png",
@@ -135,4 +167,4 @@ Plot.by.Factr <- function(XXX){
 }
 
 
-#Plot.by.Factr()
+
