@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pepe <a href='https://github.com/seymakalay/pepe'><img src='man/figures/pepe.png' align="right" height="138.5" /></a>
+# pepe <a><img src='man/figures/pepe.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 
