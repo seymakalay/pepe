@@ -19,6 +19,7 @@
 #' df4.Plot.by.Factr(var,df)
 #'
 
+
 df4.Plot.by.Factr <- function(var, df) {
 
   tab.0.prop <- tab.1.prop <- NULL
