@@ -1,7 +1,7 @@
 Package: pepe
 Type: Package
 Title: Data Manipulation
-Version: 1.1.0
+Version: 1.2.0
 Author: Seyma Kalay
 Maintainer: Seyma Kalay <seymakalay@hotmail.com>
 Description: Is designed to make easier printing summary statistics (for continues and factor level) tables in Latex, and plotting by factor. 
