@@ -7,8 +7,8 @@
 #' @export
 #' @importFrom psych describe
 #' @importFrom tidyr gather
-#' @importFrom dplyr group_by summarise arrange mutate ungroup filter
-#' @importFrom dplyr %>% across
+#' @importFrom dplyr group_by summarise arrange mutate ungroup filter across
+#' @importFrom dplyr %>%
 #' @examples
 #' df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
 #' "sex","educ","political.afl","married",

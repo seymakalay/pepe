@@ -13,21 +13,22 @@
 #' @importFrom dplyr %>%
 #' @importFrom  utils globalVariables
 #' @examples
-#' \dontrun{
 #' df <- sample_data[c("Formal","Informal","L.Both",
 #' "No.Loan", "sex","educ","political.afl","married",
 #' "havejob","rural","age","Income","Networth","Liquid.Assets",
 #' "NW.HE","fin.knowldge","fin.intermdiaries")]
 #' CN = colnames(df)
-#' var <- c("educ","rural","sex","havejob","political.afl")
+#' var <- c("educ","rural")
 #'
 #' name.levels <- c("Formal","Informal","L.Both","No.Loan",
 #' "sex","educ","political.afl","married",
 #' "havejob","rural","age","Income","Networth","Liquid.Assets",
 #' "NW.HE","fin.knowldge","fin.intermdiaries")
 #'
-#' Plot.by.Factr(df4.Plot.by.Factr(var,df)$Summ.Stats.long, name.levels)
-#'}
+#' XXX <- df4.Plot.by.Factr(var,df)$Summ.Stats.long
+#' Plot.by.Factr(XXX, name.levels)
+#` ggsave(p, filename = file.path("descriptive.plots", paste("descriptive.plots.",
+#`                                 var[i], ".png", sep='')), scale = 2)
 
 
 
@@ -148,10 +149,17 @@ Plot.by.Factr <- function(XXX, name.levels){
 
 
     #ggsave(p, filename = paste("descriptive.plots.",
-     #                          var[i], ".png", sep=''), scale=2)
+    #                           var[i], ".png", sep=''), scale=2)
 
-    ggsave(p, filename = file.path("descriptive.plots", paste("descriptive.plots.",
-                                    var[i], ".png", sep='')), scale = 2)
+
+
+
+    #ggsave(p, filename = file.path("descriptive.plots", paste("descriptive.plots.",
+    #                                var[i], ".png", sep='')), scale = 2)
+
+
+
+
 
     #ggsave(filename = file.path("figs","fig1.png")
 

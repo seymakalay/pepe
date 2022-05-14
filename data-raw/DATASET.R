@@ -23,7 +23,8 @@ sample_data$Loan.Type = relevel(sample_data$Loan.Type, ref =  "No.Loan")
 
 #sample_data <- sample_data[ , -which(names(sample_data) %in% c("X.1", "X"))]
 
-sample_data <- sample_data[ , -which(names(sample_data) %in% c( "X.1"))]
+
+#sample_data <- sample_data[ , -which(names(sample_data) %in% c( "X.1"))]
 #sample_data$Credit.Access <- sample_data$multi.level
 
 

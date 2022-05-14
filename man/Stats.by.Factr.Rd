@@ -18,14 +18,12 @@ The output from  \code{\link{Stats.by.Factr}}.
 Summary Statistics by Factor
 }
 \examples{
-\dontrun{
 df <- sample_data[c("Formal","Informal","L.Both","No.Loan",
 "sex","educ","political.afl","married",
 "havejob","rural","age","Income","Networth","Liquid.Assets",
 "NW.HE","fin.knowldge","fin.intermdiaries")]
 CN = colnames(df)
-var <- c("educ","rural","sex","havejob","political.afl")
+var <- c("educ")
 Stats.by.Factr(var, df)
-}
 
 }

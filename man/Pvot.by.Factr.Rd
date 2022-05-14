@@ -4,14 +4,22 @@
 \alias{Pvot.by.Factr}
 \title{Pivot Table by Factor}
 \usage{
-Pvot.by.Factr(dsc)
+Pvot.by.Factr(df)
 }
 \arguments{
-\item{dsc}{The matrix of factor variables.}
+\item{df}{The data frame of factor variables.}
 }
 \value{
 The output from  \code{\link{Pvot.by.Factr}}.
 }
 \description{
 Pivot Table by Factor
+}
+\examples{
+df <- sample_data[c("multi.level",
+"Formal","L.Both","No.Loan",
+"region", "sex", "educ", "political.afl",
+"married", "havejob", "rural",
+"fin.knowldge", "fin.intermdiaries")]
+Pvot.by.Factr(df)
 }
